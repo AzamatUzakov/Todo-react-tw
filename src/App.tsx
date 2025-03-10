@@ -1,36 +1,27 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { Button } from './components/ui/button'
+import UserTable from './components/ui/custom/UserTable'
+import SearchForm from './components/ui/custom/SearchForm'
+import people from './util/Person'
 import {
-  ResizableHandle,
   ResizablePanel,
+  ResizableHandle,
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
-import UserTable from './components/ui/custom/UserTable'
 
 
 function App() {
-  const [users, setUsers] = useState([])
-  const [filterd, setFiltered] = useState([])
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data)
-        setFiltered(data)
-      })
-  }, []);
+  const [users] = useState(people)
+  const [filtered, setFiltered] = useState(people)
 
   return (
-    <div className='w-[100%] h-screen bg-gray-300 text-white'>
-      <ResizablePanelGroup direction="horizontal">
+    <div className='w-[95%] h-[95%] mx-auto bg-white text-white p-4 rounded-2xl shadow-[0px_0px_20px_-1px_gainsboro]' >
+      <ResizablePanelGroup direction="horizontal" className='h-full'>
 
         <ResizablePanel>
 
-
-          <UserTable  />
+          <SearchForm users={users} setFiltered={setFiltered} />
+          <UserTable filter={filtered} />
 
         </ResizablePanel>
 

@@ -1,12 +1,4 @@
-type Person = {
-  id: number;
-  name: string;
-  surname: string;
-  age: number;
-  phone: string;
-};
-
-const people: Person[] = [
+const people = [
   { id: 1, name: "Иван", surname: "Иванов", age: 25, phone: "+79990001122" },
   { id: 2, name: "Мария", surname: "Петрова", age: 30, phone: "+79990002233" },
   {
