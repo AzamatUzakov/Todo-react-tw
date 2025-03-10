@@ -22,12 +22,12 @@ const AddUser: React.FC<AddUserProps> = ({ setUsers }) => {
             return;
         }
 
-        const newUser: Todo = {
+        const newUser: Person = {
             id: Math.random(),
             userName,
             surname,
             age,
-            phone,
+            phone
         };
 
         setUsers((prev) => [...prev, newUser]);

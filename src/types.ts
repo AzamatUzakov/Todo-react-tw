@@ -3,7 +3,7 @@ type Person = {
   userName: string;
   surname: string;
   age: number;
-  phone: number;
+  phone: string;
 };
 
 export default Person
