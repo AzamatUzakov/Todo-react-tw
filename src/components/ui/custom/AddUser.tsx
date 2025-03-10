@@ -1,20 +1,14 @@
 import React from "react";
 import { Input } from "../input";
 import { Button } from "../button";
-
-interface Todo {
-    id: number;
-    userName: string;
-    surname: string;
-    age: number;
-    phone:string;
-}
+import Person from "@/types";
 
 interface AddUserProps {
-    setUsers: React.Dispatch<React.SetStateAction<Todo[]>>;
+    setUsers: React.Dispatch<React.SetStateAction<Person[]>>;
 }
 
 const AddUser: React.FC<AddUserProps> = ({ setUsers }) => {
+   
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const fm = new FormData(e.currentTarget);
