@@ -12,7 +12,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ users, setFiltered }) => {
 
     useEffect(() => {
         const filter = users.filter((user) => 
-            user.name.toLowerCase().includes(search.toLowerCase().trim())
+            user.userName.toLowerCase().includes(search.toLowerCase().trim())
 
         )
         setFiltered(filter)

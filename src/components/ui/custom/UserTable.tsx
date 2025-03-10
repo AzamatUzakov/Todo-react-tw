@@ -41,7 +41,7 @@ const UserTable: React.FC<SearchFormProps> = ({ filter, setDelete }) => {
                 <TableBody>
                     {filter.map((user) => (
                         <TableRow key={user.id} className="text-[16px] text-gray-800 hover:bg-gray-50 transition-all">
-                            <TableCell className="px-4 font-medium text-blue-600">{user.name}</TableCell>
+                            <TableCell className="px-4 font-medium text-blue-600">{user.userName}</TableCell>
                             <TableCell className="px-4">{user.surname}</TableCell>
                             <TableCell className="px-4 text-center">{user.age}</TableCell>
                             <TableCell className="px-4 text-center">{user.phone}</TableCell>

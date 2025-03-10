@@ -1,9 +1,9 @@
 type Person = {
   id: number;
-  name: string;
+  userName: string;
   surname: string;
   age: number;
-  phone: string;
+  phone: number;
 };
 
 export default Person

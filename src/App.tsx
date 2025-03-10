@@ -16,13 +16,12 @@ function App() {
   const [filtered, setFiltered] = useState(people)
 
 
-  const removeUser = (id: number) => {
-    setUsers((prevUsers) => {
-      const updtUser = prevUsers.filter((user) => user.id !== id)
-      setFiltered(updtUser)
-      return updtUser;
-    })
+  useEffect(() => {
+    setFiltered([...users]);
+  }, [users]);
 
+  const removeUser = (id: number) => {
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
   }
 
   return (
@@ -38,7 +37,7 @@ function App() {
 
         <ResizableHandle withHandle />
         <ResizablePanel>
-          <AddUser />
+          <AddUser setUsers={setUsers} />
         </ResizablePanel>
       </ResizablePanelGroup>
 
