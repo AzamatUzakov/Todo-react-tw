@@ -8,11 +8,22 @@ import {
   ResizableHandle,
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
+import AddUser from './components/ui/custom/AddUser'
 
 
 function App() {
-  const [users] = useState(people)
+  const [users, setUsers] = useState(people)
   const [filtered, setFiltered] = useState(people)
+
+
+  const removeUser = (id: number) => {
+    setUsers((prevUsers) => {
+      const updtUser = prevUsers.filter((user) => user.id !== id)
+      setFiltered(updtUser)
+      return updtUser;
+    })
+
+  }
 
   return (
     <div className='w-[95%] h-[95%] mx-auto bg-white text-white p-4 rounded-2xl shadow-[0px_0px_20px_-1px_gainsboro]' >
@@ -21,12 +32,14 @@ function App() {
         <ResizablePanel>
 
           <SearchForm users={users} setFiltered={setFiltered} />
-          <UserTable filter={filtered} />
+          <UserTable filter={filtered} setDelete={removeUser} />
 
         </ResizablePanel>
 
         <ResizableHandle withHandle />
-        <ResizablePanel>Two</ResizablePanel>
+        <ResizablePanel>
+          <AddUser />
+        </ResizablePanel>
       </ResizablePanelGroup>
 
     </div>

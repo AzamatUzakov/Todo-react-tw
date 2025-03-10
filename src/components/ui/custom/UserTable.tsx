@@ -15,15 +15,18 @@ import Person from "@/types";
 
 interface SearchFormProps {
     filter: Array<Person>;
+    setDelete: (id: number) => void;
+
 }
-const UserTable: React.FC<SearchFormProps> = ({ filter }) => {
+const UserTable: React.FC<SearchFormProps> = ({ filter, setDelete }) => {
     console.log(filter);
+
 
     return (
 
 
         < div >
-            <Table className="overflow-y-scroll border border-gray-300 shadow-lg rounded-lg">
+            <Table className="overflow-y-scroll h-[400px] border border-gray-300 shadow-lg rounded-lg">
 
                 <TableHeader className="bg-gray-100">
                     <TableRow className="text-gray-700 text-lg">
@@ -47,7 +50,9 @@ const UserTable: React.FC<SearchFormProps> = ({ filter }) => {
                                     <div className="edit-btn cursor-pointer p-2 rounded-full hover:bg-blue-100 transition-all">
                                         <GrEdit />
                                     </div>
-                                    <div className="del-btn cursor-pointer p-2 rounded-full hover:bg-red-100 transition-all">
+                                    <div className="del-btn cursor-pointer p-2 rounded-full hover:bg-red-100 transition-all"
+                                        onClick={() => setDelete(user.id)}
+                                    >
                                         <TiUserDeleteOutline />
                                     </div>
                                 </div>
