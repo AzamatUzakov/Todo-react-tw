@@ -25,7 +25,7 @@ const UserTable: React.FC<SearchFormProps> = ({ filter, setDelete }) => {
     return (
 
 
-        < div className="overflow-y-scroll h-[100%]">
+        < div className="">
             <Table className="border border-gray-300 shadow-lg rounded-lg">
 
                 <TableHeader className="bg-gray-100">
